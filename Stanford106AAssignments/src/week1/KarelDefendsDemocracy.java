@@ -8,30 +8,26 @@ public class KarelDefendsDemocracy extends SuperKarel {
 		while(frontIsClear()) 
 		{
 			move();
-			while(beepersPresent()) 
+			if(noBeepersPresent())
 			{
-				pickBeeper();
+				turnLeft();
+				move();
+				while(beepersPresent())
+				{
+					pickBeeper();
+				}
+				turnAround();
+				move();
+				move();
+				while(beepersPresent())
+				{
+					pickBeeper();
+				}
+				turnAround();
+				move();
+				turnRight();
 			}
-			turnRight();
-			
 			move();
-			while(beepersPresent()) 
-			{
-				pickBeeper();
-			}
-			turnAround();
-		
-			move();
-			move();
-			while(beepersPresent()) 
-			{
-				pickBeeper();
-			}
-			turnAround();
-		
-			move();
-			turnLeft();
-			move();	
 		}	
 				
 	}
@@ -56,7 +52,9 @@ public class KarelDefendsDemocracy extends SuperKarel {
 starts 1,3
 move forward (karel is facing east by default)
 check if wall/blocked
-check if beepers (check if beepers is > 1 using while loop)
+check if beepers present
+if beeper is not present, turn left and move
+while beeper is present, pick up (until none left)
 */
 
 /*
