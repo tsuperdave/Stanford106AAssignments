@@ -18,17 +18,18 @@ public class Fibonacci extends ConsoleProgram
 {
 
 	private static final int MAX_TERM_VALUE = 10000;
-	private int currentVal = 0;
-	private int nextVal = 1;
-	
+	private int currentVal = 0; // 1
+	private int nextVal = 1; // 2
+	// value 3 
 		
-	public void run() {
+	public void run() 
+	{
 		if(nextVal >= 1) 
 		{
 			while(currentVal <= MAX_TERM_VALUE)
 			{
 				System.out.println(currentVal);
-				int valAfterNext = currentVal + nextVal;
+				int valAfterNext = currentVal + nextVal; //sum prev 2 values								
 				currentVal = nextVal;
 				nextVal = valAfterNext;
 			}

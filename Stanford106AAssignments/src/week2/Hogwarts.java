@@ -20,14 +20,14 @@ public class Hogwarts extends ConsoleProgram
 	private void bludger(int y) 
 	{
 		int x = y / 1000; // == 2
-		int z = (x + y); // == 2003
+		int z = (x + y); // == 2003		
 		x = quaffle(z, y); // 
 		println("bludger: x = " + x + ", y = " + y + ", z = " + z);
 	}
 	
 	private int quaffle(int x, int y) 
 	{
-		int z = snitch(x + y, y);
+		int z = snitch(x + y, y); // pause, look for method
 		y /= z;
 		println("quaffle: x = " + x + ", y = " + y + ", z = " + z);
 		return z;
