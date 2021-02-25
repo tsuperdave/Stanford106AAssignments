@@ -28,7 +28,5 @@ public class DeleteCharactersFromString extends ConsoleProgram {
 		String newString = str.replace(charToRemove, "");
 		//print(newString);
 		return newString;
-	}
-
-	
+	}	
 }
