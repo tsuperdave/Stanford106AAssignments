@@ -49,7 +49,7 @@ public class Histograms extends ConsoleProgram
 				String line = br.readLine();
 				if(line == null) break;				
 				int score = Integer.parseInt(line);	
-				// println(score);
+				//println(score);
 				if(score < 0 || score > 100)
 				{
 					throw new ErrorException("Score out of Range");
@@ -59,16 +59,18 @@ public class Histograms extends ConsoleProgram
 					int scoreRange = score / 10;
 					histogramArray[scoreRange]++;						
 				}
-				
+				//println(line);
 			}
 			// lineCount = scoresList.size();
 			// println(lineCount);
-			// println(scoresList);
+			// println(line);
+			// br.close();
 		}
 		catch(IOException e)
 		{
 			throw new ErrorException(e);
-		}		
+		}
+		
 	}
 	
 	private void printHistogram()
@@ -85,7 +87,7 @@ public class Histograms extends ConsoleProgram
 			// String tallys = createTallys(scoresList.get(scoreRange / 10));
 			String tallys = createTallys(histogramArray[scoreRange]);
 			// println(scoresList.get(scoreRange));
-			println(scoreRange + ": " + tallys);
+			println(label + ": " + tallys);
 		}
 	}
 	
