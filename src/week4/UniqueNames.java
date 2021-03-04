@@ -19,8 +19,7 @@ public class UniqueNames extends ConsoleProgram
 			if(!names.contains(nameInput)) 
 			{
 				names.add(nameInput);
-			}
-						
+			}						
 		}
 		println("Name List is: ");
 		//println(names);
