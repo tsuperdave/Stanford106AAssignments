@@ -29,7 +29,7 @@ public class FlightPlanner extends ConsoleProgram
 	public void run() 
 	{
 		println("Welcome to Flight Planner!");
-		readFlightList(FILE_NAME);												// reads file/flight list
+		readFlightList();												// reads file/flight list
 		
 		println("Here\'s a list of all the cities in our databse:");
 		printCityDB(cities);													// prints out available cities to fly to/from
@@ -53,12 +53,12 @@ public class FlightPlanner extends ConsoleProgram
 		// break loop once user enters starting city
 	}
 	
-	private void readFlightList(String file)
+	private void readFlightList()
 	{
 		flights = new HashMap<String, ArrayList<String>>();
 		cities = new ArrayList<String>();
 		try {
-			br = new BufferedReader(new FileReader(file));
+			br = new BufferedReader(new FileReader(FILE_NAME));
 			while(true)
 			{
 				String line = br.readLine();
