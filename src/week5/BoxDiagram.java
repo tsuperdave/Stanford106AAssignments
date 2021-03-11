@@ -15,7 +15,8 @@ import acm.util.RandomGenerator;
 	// clear and remove works, box selection and drag not working
 	// remove works, clear does not
 
-public class BoxDiagram extends GraphicsProgram {
+public class BoxDiagram extends GraphicsProgram 
+{
 	
 	private static final double BOX_WIDTH = 120;
 	private static final double BOX_HEIGHT = 50;
