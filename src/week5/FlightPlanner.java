@@ -8,10 +8,10 @@ import acm.program.ConsoleProgram;
 
 
 // read from file named flights.txt - BufferedReader √
-	// each line of file consists of pair of cities separated by and arrow '->'
-	// ignore blank lines for readability -- .hasNext() can determine end of file
-// program should read file and store as appropriate data structure
-// display complete list of cities
+	// each line of file consists of pair of cities separated by and arrow '->'  √
+	// ignore blank lines for readability -- .hasNext() can determine end of file √
+// program should read file and store as appropriate data structure √
+// display complete list of cities √
 
 
 
