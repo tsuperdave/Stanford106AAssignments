@@ -6,6 +6,14 @@ import java.util.*;
 import javax.swing.*;
 import acm.graphics.*;
 import acm.program.*;
+import acm.util.RandomGenerator;
+
+/* ISSUES */ 
+// box alignment in window
+// text alignment in box
+// need to test more than 1 box, and clear screen/delete
+	// clear and remove works, box selection and drag not working
+	// remove works, clear does not
 
 public class BoxDiagram extends GraphicsProgram {
 	
@@ -22,15 +30,17 @@ public class BoxDiagram extends GraphicsProgram {
 	
 	private HashMap<String, GObject> objectMap;			// could add objects to list?
 	private Iterator<String> iterator;
+	RandomGenerator randomGen;
 	
 	public void init()	
 	{
 		objectMap = new HashMap<String, GObject>();		// need to add new instance
 		add = new JButton("Add");
 		remove = new JButton("Remove");
-		clear = new JButton("Remove");
+		clear = new JButton("Clear");
 		textField = new JTextField(30);
 		textLabel = new JLabel("Name");
+		textField.addActionListener(this);				// need to add action listener for textfield
 		add(textLabel, SOUTH);
 		add(textField, SOUTH);
 		add(add, SOUTH);
@@ -48,6 +58,7 @@ public class BoxDiagram extends GraphicsProgram {
 	{
 		lastClick = new GPoint(e.getPoint());
 		currentObject = getElementAt(lastClick);
+		// System.out.println("Mouse Pressed at " + lastClick);
 	}
 	
 	public void mouseClicked(MouseEvent e)
@@ -57,12 +68,14 @@ public class BoxDiagram extends GraphicsProgram {
 	
 	public void mouseDragged(MouseEvent e)
 	{
-		lastClick = new GPoint(e.getPoint());
+		// lastClick = new GPoint(e.getPoint());
 		if(currentObject != null)
 		{
 			currentObject.move(e.getX() - lastClick.getX(), e.getY() - lastClick.getY());
 			lastClick = new GPoint(e.getPoint());
+			// System.out.println("Mouse Dragged at " + lastClick);
 		}
+		
 	}
 	
 	public void actionPerformed(ActionEvent e)			// will need to determine which action was performed and where
@@ -79,18 +92,25 @@ public class BoxDiagram extends GraphicsProgram {
 			iterator = objectMap.keySet().iterator();							// need to clear all boxes on screen
 			while(iterator.hasNext())											// if iterator detects list has next item in map
 			{
-				removeBox(iterator.next());										
+				removeBox(iterator.next());			
 			}
+			objectMap.clear();
+			textField.setText("");											// clear text box as well, just for fun			
 		}
 	}
 	
 	private void createBox(String name) 									// create GCompound for adding box/border/text, then add to a list
 	{
+		randomGen = RandomGenerator.getInstance();
 		GCompound box = new GCompound();									
 		GRect border = new GRect(BOX_WIDTH, BOX_HEIGHT);
-		GLabel label = new GLabel(name);									
-		box.add(border, BOX_WIDTH / 2, BOX_HEIGHT / 2);						// add border to GComp, same dimensions as box
-		box.add(label, label.getWidth() / 2, label.getHeight() / 2);		// add label, center of window as well
+		GLabel label = new GLabel(name);
+		box.setColor(randomGen.nextColor());
+		border.setColor(randomGen.nextColor());
+		label.setColor(randomGen.nextColor());
+		label.setFont("SERIF");
+		box.add(border, -BOX_WIDTH / 2, -BOX_HEIGHT / 2);						// add border to GComp, same dimensions as box
+		box.add(label, -label.getWidth() / 2, label.getAscent() / 2);		// add label, center of window as well
 		add(box, getWidth() / 2, getHeight() / 2);							// add box to center of JFrame
 		objectMap.put(name, box);											// add object to list/map
 	}
@@ -102,6 +122,7 @@ public class BoxDiagram extends GraphicsProgram {
 		{
 			remove(object);
 		}
+		
 	}
 	// could create first obj in center of 'Center' field to build other objects around
 	// create GCompound for Grect/TextField for respective buttons
