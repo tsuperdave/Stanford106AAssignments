@@ -72,7 +72,8 @@ public class MidTerm extends ConsoleProgram{
 	/* METHOD FOR 3 */
 	String printBiggestAndSecondBiggestNum(ArrayList<Integer> numbers)
 	{	
-		int max = numbers.get(0);																// starting place for max value
+		int max = numbers.get(0);
+		// starting place for max value
 		int secondBiggest = numbers.get(0);														// starting place for 2nd biggest val
 		
 		for(int i = 1; i < numbers.size(); i++)													// iterate over arraylist starting at index 1 since we store val at index 0 above							

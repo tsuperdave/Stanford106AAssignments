@@ -9,7 +9,7 @@ public class NameCounts extends ConsoleProgram
 		
 	public void run()
 	{
-		HashMap<String,Integer> nameCount = new HashMap<String,Integer>();			// call new HashMap constructor
+		HashMap<String, Integer> nameCount = new HashMap<String, Integer>();			// call new HashMap constructor
 		readNames(nameCount);
 		printList(nameCount);
 	}
