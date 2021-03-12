@@ -20,7 +20,7 @@ public class FlightPlanner extends ConsoleProgram
 {
 	
 	private HashMap<String, ArrayList<String>> flights;
-	// private HashSet<String> listOfCities;								// could use Set to create list of cities for print out/starting locations
+	// private HashSet<String> listOfCities;									// could use Set to create list of cities for print out/starting locations
 	private ArrayList<String> cities;
 	private BufferedReader br;
 	private static final String FILE_NAME = "flights.txt";
@@ -29,7 +29,7 @@ public class FlightPlanner extends ConsoleProgram
 	public void run() 
 	{
 		println("Welcome to Flight Planner!");
-		readFlightList();												// reads file/flight list
+		readFlightList();														// reads file/flight list
 		
 		println("Here\'s a list of all the cities in our databse:");
 		printCityDB(cities);													// prints out available cities to fly to/from

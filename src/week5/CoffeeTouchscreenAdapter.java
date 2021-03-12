@@ -1,9 +1,13 @@
 package week5;
 
+
+/* IMAGINE AS ADAPTER CABLE TO ALLOW OLD TO WORK WITH NEW */
+
 public class CoffeeTouchscreenAdapter implements CoffeeMachineInterface
 {
 	OldCoffeeMachine oldMachine;
 	
+	/* CONSTRUCTOR */
 	public CoffeeTouchscreenAdapter(OldCoffeeMachine machine)
 	{
 		oldMachine = machine;

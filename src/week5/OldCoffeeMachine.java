@@ -1,5 +1,8 @@
 package week5;
 
+
+/* OLD MACHINE TO STILL USE */
+
 public class OldCoffeeMachine 
 {
 	public OldCoffeeMachine(){}
