@@ -9,11 +9,11 @@ public class OldCoffeeMachine
 
 	public void selectA()
 	{
-		System.out.println("Option A was selected");
+		System.out.println("Option A was selected from Old Machine");
 	}
 
 	public void selectB()
 	{
-		System.out.println("Option B was selected");
+		System.out.println("Option B was selected from Old Machine");
 	}
 }
