@@ -6,11 +6,12 @@ package week7;
 */
 public class ExpandableArray {
 	
+	private Object[] arr;
 	/**
 	* Creates a new expandable array with no elements.
 	*/		
 	public ExpandableArray() {
-		
+		arr = new Object[0];
 	}
 	
 	/**
@@ -20,7 +21,14 @@ public class ExpandableArray {
 	*/
 	
 	public void set(int index, Object value) {
-	
+		if(index >= arr.length) {
+			Object[] tempArr = new Object[index + 1];
+			
+			for(int i = 0; i < arr.length; i++) {
+				tempArr[i] = arr[i];
+			}
+		}
+		arr[index] = value;
 	}
 	
 	/**
@@ -31,6 +39,7 @@ public class ExpandableArray {
 	*/
 	
 	public Object get(int index) {
-		return Object;
+		if(index > arr.length) return null; 
+		return arr[index];
 	}
 }
