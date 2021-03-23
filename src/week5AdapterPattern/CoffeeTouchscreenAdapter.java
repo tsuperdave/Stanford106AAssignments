@@ -1,27 +1,28 @@
-package week5;
-
+package week5AdapterPattern;
 
 /* IMAGINE AS ADAPTER CABLE TO ALLOW OLD TO WORK WITH NEW */
 
 public class CoffeeTouchscreenAdapter implements CoffeeMachineInterface
 {
-	OldCoffeeMachine oldMachine;
+	private OldCoffeeMachine oldVendingMachine;
 	
 	/* CONSTRUCTOR */
-	public CoffeeTouchscreenAdapter(OldCoffeeMachine machine)
+	public CoffeeTouchscreenAdapter(OldCoffeeMachine oldVendingMachine)
 	{
-		oldMachine = machine;
+		this.oldVendingMachine = oldVendingMachine;
 	}
 	
+	@Override
 	public void chooseFirstSelection()
 	{
 		System.out.println("Old Machine option A was selected via adapter");
-		oldMachine.selectA();
+		oldVendingMachine.selectA();
 	}
 
+	@Override
 	public void chooseSecondSelection()
 	{
 		System.out.println("Old Machine option B was selected via adapter");
-		oldMachine.selectB();
+		oldVendingMachine.selectB();
 	}
 }
