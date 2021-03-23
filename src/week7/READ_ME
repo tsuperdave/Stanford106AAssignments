@@ -1,0 +1,11 @@
+Section #9 Handout Answers:
+
+1. Primitive vs. Objects
+		
+		Part 1
+		Main issue with the first 'IsNameQ()' method is looking to return a boolean based on object comparison versus String object. The variable 'name' is just a reference
+		to the object in memory and thus using '==' will produce false (since this operator is for primitive types). the '.equals()' method for String objects can be used here.
+		
+		Part 2
+		Since in the return statement we are looking for the character (stored in a primitive type var labeled 'ch') equal to 'Q' AND (&&) the length of the string to be exactly 
+		1, this predicate will return true as intended.
